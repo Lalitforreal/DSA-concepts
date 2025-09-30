@@ -21,6 +21,19 @@ int main(){
     //to copy a vector into another
     vector <int> vector1(5,20);
     vector <int> vector2(v1);
+
+
+
+    vector<int>::iterator it = v.begin(); //begin points at the start index of the vector
+
+    //case 1 if vector us {2,10,15,20}
+    it++;  //10 ko point karega it 
+    cout<< *(it) << " "; //pointer * points to  to the memory location and print
+
+    //case 2
+    it+=2;
+    cout<<*(it)<<" ";
+
     
 
 }

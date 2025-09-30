@@ -1,6 +1,3 @@
-//iteration and deletion 
-
-
 #include <iostream>
 #include <vector>
 using namespace std;
@@ -42,22 +39,12 @@ int main(){
     // cout<<endl;
 
 
-    // //deletion in a vector {2, 10, 15, 20}
-
-    // //single elements
-    v.erase(v.begin()+1); //here erase(the postion you want to delete)
+    //deletion in a vector {2, 10, 15, 20}
+    v.erase(v.begin()+1);
     for(auto it : v){
         cout<< it << ", ";
     }
     return 0;
-
-    //delete a range
-    v.erase(v.begin(),v.begin()+2); //here erase(start, end) and end is exclusive/ isn't included
-    for(auto it : v){
-        cout<< it << ", ";
-    }
-    return 0;
-
 
 
 
