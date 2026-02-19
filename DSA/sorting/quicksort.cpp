@@ -16,6 +16,8 @@ int partition(vector<int>& arr, int low,int high){
     swap(arr[i+1],arr[high]);
     return i+1; //returns the pivot jiske left me sab chote and right me usse bade
 }
+
+
 //dont pass by value, use reference
 void quickSort(vector<int>& arr,int low, int high){
     if(low<high){

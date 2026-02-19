@@ -10,11 +10,11 @@ void countingSort(vector<int>& arr, int exp) {
 
     // Count occurrences of digits
     for (int i = 0; i < n; i++) {
-        int digit = (arr[i] / exp) % 10;
+        int digit = (arr[i] / exp) % 10;  // llike if exp - 10 ya 100th place hai toh 129 toh 29/10 = 12 %10 = 2 toh digit mil gaya 
         count[digit]++;
     }
 
-    // Prefix sum (cumulative count)
+    // Prefix sum (cumulative count) turning count into positions
     for (int i = 1; i < 10; i++) {
         count[i] += count[i - 1];
     }
@@ -22,6 +22,7 @@ void countingSort(vector<int>& arr, int exp) {
     // Build output array (RIGHT to LEFT for stability)
     for (int i = n - 1; i >= 0; i--) {
         int digit = (arr[i] / exp) % 10;
+        //count is now the positions
         output[count[digit] - 1] = arr[i];
         count[digit]--;
     }
@@ -30,6 +31,7 @@ void countingSort(vector<int>& arr, int exp) {
     for (int i = 0; i < n; i++) {
         arr[i] = output[i];
     }
+
 }
 
 int main() {
@@ -45,7 +47,7 @@ int main() {
 
     int passes;
     cout << "Enter number of passes required: ";
-    cin >> passes;
+    cin >> passes; //3 digit - 4 digits whatever
 
     int exp = 1;  // 1 -> units, 10 -> tens, 100 -> hundreds ...
 

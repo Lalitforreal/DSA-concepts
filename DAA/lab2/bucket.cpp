@@ -24,9 +24,9 @@ int main() {
     // Step 1: Create n empty buckets
     vector<vector<double>> buckets(n);
 
-    // Step 2: Distribute elements into buckets
+    // Step 2: Distribute elements into buckets n = no. of buckets
     for (int i = 0; i < n; i++) {
-        int index = n * arr[i];   // bucket index
+        int index = n * arr[i];   // bucket index like arr[i] kaunsi bucket me jayega if 0.12 * 5 = 0.6 -> 0, 0.39 * 5 = 1.95 -> 1st bucket(range 0.2-0.4)
         if (index == n) index = n - 1; // edge case when value = 1
         buckets[index].push_back(arr[i]);
     }

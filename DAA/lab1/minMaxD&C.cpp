@@ -38,6 +38,7 @@ MinMax findMinMax(const vector<int>& arr, int low, int high) {
     result.max = (left.max > right.max) ? left.max : right.max;
 
     return result;
+    
 }
 
 int main() {
