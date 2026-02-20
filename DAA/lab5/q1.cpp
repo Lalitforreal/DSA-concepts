@@ -13,7 +13,7 @@ struct Node {
     }
 };
 
-// Comparator: frequency → character
+// Comparator: frequency → character min heap logic
 struct Compare {
     bool operator()(Node* a, Node* b) {
         if (a->freq == b->freq)
@@ -46,16 +46,27 @@ int main() {
     for (char c : s) freq[c]++;
 
     priority_queue<Node*, vector<Node*>, Compare> pq;
+    // What it does: compare
+	// •	Creates a min heap based on frequency
+	// •	Smaller frequency = higher priority
+	// •	If frequencies are equal → smaller character comes first (lexicographically)
 
+
+    //create min heap
     for (auto p : freq) {
         pq.push(new Node(p.first, p.second));
     }
 
+
     while (pq.size() > 1) {
+        //Remove two nodes with smallest frequency
         Node* left = pq.top(); pq.pop();
         Node* right = pq.top(); pq.pop();
 
         char smallest = min(left->ch, right->ch);
+
+        //Combine them into a new parent node
+        // Parent frequency = sum of both
         Node* parent = new Node(smallest, left->freq + right->freq);
         parent->left = left;
         parent->right = right;

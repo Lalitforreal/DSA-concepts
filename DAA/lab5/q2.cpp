@@ -1,3 +1,6 @@
+
+// knapsack
+
 #include <bits/stdc++.h>
 using namespace std;
 
@@ -39,8 +42,11 @@ int main() {
             maxValue += items[i].value;
         } else {
             // Take fraction
-            maxValue += items[i].value * ((double)W / items[i].weight);
-            W = 0;
+            maxValue += items[i].value * ((double)W / items[i].weight); 
+            // W = 0;
+            // 1. Remaining capacity
+            // W = space left in the bag
+            // items[i].weight = full weight of the item if item weigh 40 and W us 4 you can take 4/10 40% of items
         }
     }
 
